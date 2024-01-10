@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 
-body{
+html{
     font-family:"Manrope", sans-serif;
 }
 
@@ -14,6 +14,38 @@ body{
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align:center;
+  }
+
+  .speaker{
+    top: 50%;
+    left: 50%;
+    background-color:#D87D4A;
+    transform: translate(-50%, 0%);
+    height:500px
+  }
+
+  .speaker-zx7{
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .zx-text{
+    
+    top:35%;
+    transform: translate(40%);
+  }
+
+  .zx7-button{
+    transform: translate(46%,140%)
+  }
+
+  @media (max-width:1280px){
+    .zx7-button{
+      transform:translate(44%,110%)
+    }
+    .zx-text{
+      top:30%;
+    }
   }
 
 
@@ -30,4 +62,8 @@ body{
 
 .main{
   height:100vh;
+}
+
+.earphones{
+  background-color:#F1F1F1;
 }

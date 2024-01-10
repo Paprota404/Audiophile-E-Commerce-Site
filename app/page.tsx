@@ -1,28 +1,32 @@
 'use client'
 import Image from 'next/image';
-import { Manrope } from '@next/font/google';
 import {useState, useEffect} from 'react';
 import './globals.css'
 
-const manrope = Manrope({
- weight: '400',
- subsets: ['latin'],
- variable: '--font-manrope',
-});
+
 
 export default function Home() {
   const [imageSrc, setImageSrc] = useState('/home/desktop/image-hero.jpg');
+  const [speaker, setSpeaker] = useState("/home/desktop/image-speaker-zx7.jpg");
+  const [desktopSpeaker,isDesktopSpeaker] = useState(true);
+
 
   useEffect(()=>{
     const handleResize = () => {
       if(window.innerWidth<=480){
         setImageSrc('/home/mobile/image-header.jpg');
+        setSpeaker("/home/mobile/image-speaker-zx7.jpg");
       }
       else if(window.innerWidth<=879){
         setImageSrc('/home/tablet/image-header.jpg');
+        setSpeaker("/home/tablet/image-speaker-zx7.jpg");
+        isDesktopSpeaker(false);
+      
       }
       else{
         setImageSrc('/home/desktop/image-hero.jpg');
+        setSpeaker("/home/desktop/image-speaker-zx7.jpg");
+        isDesktopSpeaker(true);
       }
     };
 
@@ -56,7 +60,7 @@ export default function Home() {
    </div>
 
 
-   <div className="justify-center flex-col mt-20 sm:mt-36 sm:flex-row flex  ">
+   <div className="justify-center flex-col mt-20 sm:mt-32 sm:mb-24 sm:flex-row flex  ">
                 <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4 flex flex-col justify-center items-center h-44 sm:h-36 mb-10 mx-4 rounded-lg">
 
                     <div className="flex flex-col justify-center  items-center ">
@@ -91,11 +95,39 @@ export default function Home() {
             </div>
 
           <div>
-            <div className="w-full bg-orange-500 ml-4">
-            <Image src="/home/mobile/image-speaker-zx9.png" height={150} width={150} alt="Speaker"></Image>
+            <div className="w-11/12  relative speaker rounded-lg flex flex-col lg:flex-row text-center lg:text-left justify-center items-center overflow-hidden">
+
+              {desktopSpeaker==false && (
+                <Image src="/home/desktop/image-speaker-zx9.png" className="mt-10 relative" height={150} width={150} alt="ZX9 Speaker"></Image>
+              )}
+              
+              {desktopSpeaker && (
+                <Image src="/home/desktop/image-speaker-zx9.png" className="mt-24  overflow-hidden" height={350} width={350} alt="ZX9 Speaker"></Image>
+              )}
+
+              <div className="w-3/4 lg:ml-20 lg:mt-16 lg:w-1/3">
+                <h1 className="text-4xl mt-7 lg:text-6xl font-semibold text-white">ZX9 SPEAKER</h1>
+                <p className="text-grey-600 mt-5 font-medium text-yellow-50">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
+                </p>
+                <button className="bg-black font-semibold mt-10 mb-16 w-40 h-12 text-white">SEE PRODUCT</button>
+              </div>
+
             </div>
           </div>
-  
+
+          <div className="w-11/12 relative speaker-zx7 mt-16">
+              <div className="relative">
+                  <Image src={speaker} width={1920} height={1080} alt="ZX7 Speaker" className="rounded-lg">
+                  </Image>
+                  <h1 className="absolute text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold zx-text">ZX7 SPEAKER</h1>
+                  <button className="font-semibold absolute zx7-button zx-text w-36 sm:w-48 md:w-56 xl:w-72 border-2 border-black h-12 md:h-16 ">SEE PRODUCT</button>
+                </div>
+          </div>
+          
+          <div className="w-11/12 flex">
+            <Image src="/home/desktop/image-earphones-yx1.jpg" width={600} height={800} alt="Earphones-yx1"></Image>
+            <div className="earphones w-1/2">a</div>
+          </div>
 
     </main>
   )
