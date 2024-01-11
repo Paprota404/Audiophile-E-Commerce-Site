@@ -1,13 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './Navbar';
-import { Manrope } from '@next/font/google';
+import Footer from './Footer'
 
-const manrope = Manrope({
- weight: '400',
- subsets: ['latin'],
- variable: '--font-manrope',
-});
 
 
 export const metadata: Metadata = {
@@ -22,9 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex justify-center">
+      <body className="flex-col ">
         <Navbar />
         {children}
+        <Footer />
         </body>
     </html>
   )

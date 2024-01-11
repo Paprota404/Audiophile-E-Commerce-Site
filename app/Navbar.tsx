@@ -23,7 +23,7 @@ const Navbar = () => {
       }, []);
 
     return(
-    <nav className="flex z-10 absolute w-full lg:w-4/5  justify-between">
+    <nav className="flex z-10 absolute w-full lg:w-4/5 earphones-container  justify-between">
         <div className="mt-6 font-bold text-2xl text-white tracking-widest">
             <button onClick={()=>setIsMenuOpen(!isMenuOpen)} className="mx-8 lg:hidden">&#9776;</button>
             audiophile
