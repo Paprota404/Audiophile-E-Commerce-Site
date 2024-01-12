@@ -36,7 +36,7 @@ const Navbar = () => {
                         <Image src="/shared/desktop/image-category-thumbnail-headphones.png" width={120} height={120} alt="Earphones Image"></Image>
                         <div className="font-semibold text-sm">HEADPHONES</div>
                         <div className="pb-10 text-sm font-semibold  text-gray-400 mt-2">
-                            <a className="flex">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
+                            <a href="/headphones" className="flex">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
                             </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
                         <Image src="/shared/desktop/image-category-thumbnail-speakers.png" width={120} height={120} alt="Earphones Image"></Image>
                         <div className="font-semibold text-sm">SPEAKERS</div>
                         <div className="pb-10 text-sm font-semibold text-gray-400 mt-2">
-                            <a className="flex">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
+                            <a href="/speakers" className="flex">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
                             </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
                         <Image src="/shared/desktop/image-category-thumbnail-earphones.png" width={120} height={120} alt="Earphones Image"></Image>
                         <div className="font-semibold text-sm">EARPHONES</div>
                         <div className="pb-10 text-sm font-semibold text-gray-400 mt-2">
-                            <a className="flex">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
+                            <a href="/speakers" className="flex">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
                             </div>
                     </div>
                 </div>
@@ -66,9 +66,9 @@ const Navbar = () => {
 
     <ul className="tracking-widest z-20  text-white text-sm font-medium flex mt-8 gap-7 ">
         <li className="hover:text-amber-600 hidden lg:block"><Link href="/">HOME</Link></li>
-        <li className="hover:text-amber-600 hidden lg:block"><Link href="/">HEADPHONES</Link></li>
-        <li className="hover:text-amber-600 hidden lg:block"><Link href="/about">SPEAKERS</Link></li>
-        <li className="hover:text-amber-600  hidden lg:block"><Link href="/contact">EARPHONES</Link></li>
+        <li className="hover:text-amber-600 hidden lg:block"><Link href="/headphones">HEADPHONES</Link></li>
+        <li className="hover:text-amber-600 hidden lg:block"><Link href="/speakers">SPEAKERS</Link></li>
+        <li className="hover:text-amber-600  hidden lg:block"><Link href="/earphones">EARPHONES</Link></li>
         
     </ul>
     <hr className="z-10 absolute w-full top-20" ></hr>

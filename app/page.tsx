@@ -1,7 +1,9 @@
 'use client'
 import Image from 'next/image';
 import {useState, useEffect} from 'react';
-import './globals.css'
+import './globals.css';
+import ShopMenu from './ShopMenu';
+import BestGear from './BestGear';
 
 
 
@@ -9,7 +11,7 @@ export default function Home() {
   const [imageSrc, setImageSrc] = useState('/home/desktop/image-hero.jpg');
   const [speaker, setSpeaker] = useState("/home/desktop/image-speaker-zx7.jpg");
   const [desktopSpeaker,isDesktopSpeaker] = useState(true);
-  const [gearImg, setGearImg] = useState("/shared/desktop/image-best-gear.jpg")
+  const [gearImg, setGearImg] = useState("/shared/desktop/image-best-gear.jpg");
 
 
   useEffect(()=>{
@@ -63,41 +65,8 @@ export default function Home() {
     </div>
    </div>
 
-
-   <div className="justify-center flex-col mt-20 sm:mt-32 sm:mb-24 sm:flex-row flex  ">
-                <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4 flex flex-col justify-center items-center h-44 sm:h-36 mb-10 mx-4 rounded-lg">
-
-                    <div className="flex flex-col justify-center  items-center ">
-                        <Image src="/shared/desktop/image-category-thumbnail-headphones.png" width={120} height={120} alt="Earphones Image"></Image>
-                        <div className="font-semibold text-sm">HEADPHONES</div>
-                        <div className="pb-10 text-sm font-semibold  text-gray-400 mt-2">
-                            <a className="flex hover:text-orange-500 cursor-pointer">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
-                            </div>
-                    </div>
-                </div>
-
-                <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4  flex flex-col justify-center items-center mb-10 mx-4  h-44 sm:h-36 rounded-lg">
-                    <div className="flex flex-col justify-center items-center">
-                        <Image src="/shared/desktop/image-category-thumbnail-speakers.png" width={120} height={120} alt="Earphones Image"></Image>
-                        <div className="font-semibold text-sm">SPEAKERS</div>
-                        <div className="pb-10 text-sm font-semibold text-gray-400 mt-2">
-                            <a className="flex hover:text-orange-500 cursor-pointer">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
-                            </div>
-                    </div>
-                </div>
-                
-                
-                  <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4  flex flex-col justify-center items-center mb-10 mx-4 h-44 sm:h-36 rounded-lg">
-                    <div className="flex flex-col justify-center items-center">
-                        <Image src="/shared/desktop/image-category-thumbnail-earphones.png" width={120} height={120} alt="Earphones Image"></Image>
-                        <div className="font-semibold text-sm">EARPHONES</div>
-                        <div className="pb-10 text-sm font-semibold text-gray-400 mt-2">
-                            <a className="flex hover:text-orange-500 cursor-pointer">SHOP <Image src="/shared/desktop/icon-arrow-right.svg" width={10} height={0} alt="Arrow" className="ml-2"></Image></a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-
+    <ShopMenu />
+   
           <div>
             <div className="w-11/12  relative speaker rounded-lg flex flex-col lg:flex-row text-center lg:text-left justify-center items-center overflow-hidden">
 
@@ -138,17 +107,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex lg:flex-row flex-col-reverse w-11/12 mt-32 relative gap-16 earphones-container items-center">
-              <div className="w-4/5 text-center lg:text-left lg:w-1/2">
-                <h1 className="text-3xl xl:text-5xl font-bold lg:w-3/4 xl:w-2/3">BRINGING YOU THE<span className="text-orange-500"> BEST</span> AUDIO GEAR</h1>
-                <p className="lg:w-4/5 xl:w-2/3 mt-5 text-gray-500">Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.</p>
-              </div>
-
-              <div className="w-full lg:w-1/2">
-              <Image src={gearImg} height={1920} width={1000} alt="Gear" className="rounded-lg"></Image>
-              </div>
-              
-          </div>
+         <BestGear />
 
         
 
