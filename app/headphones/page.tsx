@@ -2,7 +2,7 @@
 import React from 'react';
 import {useState,useEffect} from 'react';
 import Image from 'next/image';
-import ProductDesc from './ProductDesc';
+import ProductDesc from '../ProductDescNoPrice';
 import ShopMenu from '../ShopMenu';
 import BestGear from '../BestGear';
 

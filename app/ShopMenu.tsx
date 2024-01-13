@@ -5,7 +5,7 @@ const ShopMenu = () => {
   return (
     
         <div className="justify-center flex-col mt-20 sm:mt-36 sm:mb-24 sm:flex-row flex  ">
-                <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4 flex flex-col justify-center items-center h-44 sm:h-60 mb-10 mx-4 rounded-lg">
+                <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4 flex flex-col justify-center items-center h-64 sm:h-60 mb-10 mx-4 rounded-lg">
 
                     <div className="flex flex-col justify-center  items-center ">
                         <Image src="/shared/desktop/image-category-thumbnail-headphones.png" width={200} height={120} alt="Earphones Image"></Image>
@@ -16,7 +16,7 @@ const ShopMenu = () => {
                     </div>
                 </div>
 
-                <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4  flex flex-col justify-center items-center mb-10 mx-4  h-44 sm:h-60 rounded-lg">
+                <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4  flex flex-col justify-center items-center mb-10 mx-4  h-64 sm:h-60 rounded-lg">
                     <div className="flex flex-col justify-center items-center">
                         <Image src="/shared/desktop/image-category-thumbnail-speakers.png" width={200} height={120} alt="Earphones Image"></Image>
                         <div className="font-semibold text-sm">SPEAKERS</div>
@@ -27,7 +27,7 @@ const ShopMenu = () => {
                 </div>
                 
                 
-                  <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4  flex flex-col justify-center items-center mb-10 mx-4 h-44 sm:h-60 rounded-lg">
+                  <div style={{backgroundColor:'#F1F1F1'}} className="bg-slate-500  sm:w-1/4  flex flex-col justify-center items-center mb-10 mx-4 h-64 sm:h-60 rounded-lg">
                     <div className="flex flex-col justify-center items-center">
                         <Image src="/shared/desktop/image-category-thumbnail-earphones.png" width={200} height={120} alt="Earphones Image"></Image>
                         <div className="font-semibold text-sm">EARPHONES</div>
