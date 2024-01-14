@@ -6,23 +6,23 @@ import ProductDesc from '../../ProductDesc';
 import ShopMenu from '../../ShopMenu';
 import BestGear from '../../BestGear';
 
-const ZX9 = () => {
-  const [X99,setX99] = useState("/shared/desktop/image-zx9-speaker.jpg");
+const YX1 = () => {
+  const [X99,setX99] = useState("/product-yx1-earphones/desktop/image-product.jpg");
   const [numberOfUnits,setNumberOfUnits] = useState(1);
   
   useEffect(()=>{
     const handleResize = () => {
       if(window.innerWidth<=640){
-        setX99('/product-zx9-speaker/mobile/image-product.jpg');
+        setX99('/product-yx1-earphones/mobile/image-product.jpg');
       
       }
       else if(window.innerWidth<=879){
-        setX99('/shared/tablet/image-zx9-speaker.jpg');
+        setX99('/product-yx1-earphones/tablet/image-product.jpg');
         
       
       }
       else{
-        setX99('/shared/desktop/image-zx9-speaker.jpg');
+        setX99('/product-yx1-earphones/desktop/image-product.jpg');
         
       }
     };
@@ -58,8 +58,8 @@ const ZX9 = () => {
          <div className="flex flex-col sm:flex-row w-11/12 mt-20 relative earphones-container items-center  justify-center xl:gap-36  sm:gap-12">
             <Image src={X99} height={700} width={700} alt="X99 II Headphones" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 sm:mt-0 sm:w-3/4">
-            <h3 className="lg:text-lg mb-6 text-sm  text-amber-600 font-light tracking-widest ">NEW PRODUCT</h3>
-                <ProductDesc name="ZX9 SPEAKER" desc="Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups." price="4,500" />
+                <h3 className="lg:text-lg mb-6 text-sm  text-amber-600 font-light tracking-widest ">NEW PRODUCT</h3>
+                <ProductDesc name="YX1 WIRELESS EARPHONES" desc="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature." price="599" />
 
                 <div className="flex mt-8 gap-4">
                   <div className="flex h-12 w-28 earphones">
@@ -76,9 +76,9 @@ const ZX9 = () => {
 
             <div className="lg:w-6/12">
                 <h1 className="xl:text-3xl font-bold text-2xl">FEATURES</h1>
-                <p className="text-sm tracking-wide text-stone-500 mt-4">Connect via Bluetooth or nearly any wired source. This speaker features optical, digital coaxial, USB Type-B, stereo RCA, and stereo XLR inputs, allowing you to have up to five wired source devices connected for easy switching. Improved bluetooth technology offers near lossless audio quality at up to 328ft (100m).</p>
+                <p className="text-sm tracking-wide text-stone-500 mt-4">Experience unrivalled stereo sound thanks to innovative acoustic technology. With improved ergonomics designed for full day wearing, these revolutionary earphones have been finely crafted to provide you with the perfect fit, delivering complete comfort all day long while enjoying exceptional noise isolation and truly immersive sound.</p>
 
-                <p className="text-sm tracking-wide text-stone-500 mt-4">Discover clear, more natural sounding highs than the competition with ZX9’s signature planar diaphragm tweeter. Equally important is its powerful room-shaking bass courtesy of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy equal sound quality whether in a large room or small den. Furthermore, you will experience new sensations from old songs since it can respond to even the subtle waveforms.</p>
+                <p className="text-sm tracking-wide text-stone-500 mt-4">The YX1 Wireless Earphones features customizable controls for volume, music, calls, and voice assistants built into both earbuds. The new 7-hour battery life can be extended up to 28 hours with the charging case, giving you uninterrupted play time. Exquisite craftsmanship with a splash resistant design now available in an all new white and grey color scheme as well as the popular classic black.</p>
             </div>
 
             <div className="lg:w-2/5 min-h-full mt-10 sm:mt-0 !items-start flex flex-col sm:flex-row lg:flex-col">
@@ -86,11 +86,11 @@ const ZX9 = () => {
               <h1 className="xl:text-3xl text-2xl font-bold sm:w-3/5">IN THE BOX</h1>
               <ul className="lg:mt-4 sm:mt-0 mt-4 sm:w-3/5">
 
-                <li className="mb-2"><span className="text-amber-600 mr-1">2x</span> Speaker Unit</li>
-                <li className="mb-2"><span className="text-amber-600 mr-1">2x</span> Speaker Cloth Panel</li>
+                <li className="mb-2"><span className="text-amber-600 mr-1">2x</span> Earphone Unit</li>
+                <li className="mb-2"><span className="text-amber-600 mr-1">6x</span> Multi Size Earplugs</li>
                 <li className="mb-2"><span className="text-amber-600 mr-1">1x</span> User Manual</li>
-                <li className="mb-2"><span className="text-amber-600 mr-1">1x</span> 3.5mm 5m Audio Cable</li>
-                <li className="mb-2"><span className="text-amber-600 mr-1">1x</span> 10m Optical Cable</li>
+                <li className="mb-2"><span className="text-amber-600 mr-1">1x</span> USB-C Charging Cable</li>
+                <li className="mb-2"><span className="text-amber-600 mr-1">1x</span> Travel Pouch</li>
               </ul>
             </div>
 
@@ -98,12 +98,12 @@ const ZX9 = () => {
 
         <div className="flex w-11/12 xl:w-8/12 relative mt-32 gap-6 earphones-container">
           <div className="flex-col gap-6 flex">
-            <Image src="/product-zx9-speaker/desktop/image-gallery-1.jpg" height={1000} width={2000} alt="Showoff" ></Image>
-            <Image src="/product-zx9-speaker/desktop/image-gallery-2.jpg" height={1000} width={2000} alt="Showoff" ></Image>
+            <Image src="/product-yx1-earphones/desktop/image-gallery-1.jpg" height={1000} width={2000} alt="Showoff" ></Image>
+            <Image src="/product-yx1-earphones/desktop/image-gallery-2.jpg" height={1000} width={2000} alt="Showoff" ></Image>
           </div>
 
           <div>
-            <Image src="/product-zx9-speaker/desktop/image-gallery-3.jpg" height={1000} width={2000} alt="Showoff" className="object-cover h-full"></Image>
+            <Image src="/product-yx1-earphones/desktop/image-gallery-3.jpg" height={1000} width={2000} alt="Showoff" className="object-cover h-full"></Image>
           </div>
         </div>
 
@@ -112,14 +112,14 @@ const ZX9 = () => {
 
           <div className="flex sm:flex-row flex-col gap-6">
               <div className="flex flex-col  items-center">
-                <Image src="/shared/desktop/image-zx7-speaker.jpg" height={500} width={1000} alt="Mark II Headphones"></Image>
-                <h1 className="mt-8 text-xl lg:text-2xl font-medium">ZX7 Speaker</h1>
+              <Image src="/shared/desktop/image-xx99-mark-one-headphones.jpg" height={500} width={1000} alt="Mark I Headphones"></Image>
+                <h1 className="mt-8 text-xl lg:text-2xl font-medium">XX99 MARK I</h1>
                 <button className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
               </div>
 
               <div className="flex flex-col  items-center">
-                <Image src="/shared/desktop/image-xx99-mark-one-headphones.jpg" height={500} width={1000} alt="Mark I Headphones"></Image>
-                <h1 className="mt-8 text-xl lg:text-2xl font-medium">XX99 MARK I</h1>
+                <Image src="/shared/desktop/image-xx59-headphones.jpg" height={500} width={1000} alt="Mark I Headphones"></Image>
+                <h1 className="mt-8 text-xl lg:text-2xl font-medium">XX59</h1>
                 <button className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
               </div>
 
@@ -138,4 +138,4 @@ const ZX9 = () => {
   )
 }
 
-export default ZX9
+export default YX1
