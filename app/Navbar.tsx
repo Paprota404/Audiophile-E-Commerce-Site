@@ -2,11 +2,25 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React, {useState, useEffect} from 'react';
-
+import {CartInfo} from './CartInfo';
+import Button from './Button';
 
 
 const Navbar = () => {
     const [isMenuOpen,setIsMenuOpen] = useState(false);
+    const [cart,isCartShown] = useState(false);
+    const {cartItems,setCartItems} = React.useContext(CartInfo);
+    const [showOverlay,setShowOverlay] = useState(false);
+
+    function showCart(){
+        isCartShown(!cart);
+        setShowOverlay(!showOverlay);
+    
+    }
+
+    function removeItems(){
+        setCartItems([]);
+    }
 
     useEffect(()=>{
         const handleResize = () => {
@@ -72,8 +86,39 @@ const Navbar = () => {
         
     </ul>
     <hr className="z-10 absolute w-full top-20" ></hr>
-    <Image className="mt-7 mx-8 lg:mr-0  max-h-6" src="/icon-cart.svg" width={25} height={10} alt="Cart" />
-   </nav>
+    <Image onClick={showCart} className="mt-7 mx-8 lg:mr-0 max-h-6 cursor-pointer" src="/icon-cart.svg" width={25} height={10} alt="Cart" />
+
+    {cart && (
+        <div className="w-72 h-96 bg-white absolute top-28 rounded-lg right-0">
+            <div className="m-5 flex flex-col">
+            <div className="flex justify-between ">
+                <div className="text-xl font-semibold tracking-wide">CART ({cartItems.length})
+                </div>
+                <div className="underline cursor-pointer" onClick={removeItems}>Remove all</div>
+            </div>
+            {cartItems.map((item,index)=>(
+                <div className="flex mt-5" key={index}>
+                    <div className="rounded-lg"><Image src={item.image} width={70} height={50} alt="Product"></Image>
+                    </div>
+
+                    <div className="flex flex-col items-center ml-3 justify-center">
+                        <div className="text-semibold text-lg ">{item.name}</div>
+                        <div>${item.price}</div>
+                    </div>
+
+                   
+
+                    <div></div>
+
+                </div>
+            ))}
+            </div>
+        </div>
+    )}
+
+
+     
+    </nav>
    
 )
 }

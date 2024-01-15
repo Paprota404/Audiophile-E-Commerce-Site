@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import './globals.css';
 import ShopMenu from './ShopMenu';
 import BestGear from './BestGear';
+import React from 'react';
 
 
 

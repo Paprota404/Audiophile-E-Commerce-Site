@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Navbar from './Navbar';
-import Footer from './Footer'
+import Footer from './Footer';
+import CartProvider from './CartProvider';
+
 
 
 
@@ -15,12 +17,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+
   return (
     <html lang="en">
       <body className="flex-col ">
-        <Navbar />
-        {children}
-        <Footer />
+      <CartProvider>
+      <Navbar />
+       
+         {children}
+       </CartProvider>
+       <Footer />
         </body>
     </html>
   )

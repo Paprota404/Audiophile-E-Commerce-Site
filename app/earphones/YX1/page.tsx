@@ -5,10 +5,16 @@ import Image from 'next/image';
 import ProductDesc from '../../ProductDesc';
 import ShopMenu from '../../ShopMenu';
 import BestGear from '../../BestGear';
+import {CartInfo} from '../../CartInfo';
 
 const YX1 = () => {
   const [X99,setX99] = useState("/product-yx1-earphones/desktop/image-product.jpg");
   const [numberOfUnits,setNumberOfUnits] = useState(1);
+  const {cartItems,setCartItems} = React.useContext(CartInfo);
+
+  function addToCart(){
+    setCartItems([...cartItems,{image:"/product-yx1-earphones/desktop/image-product.jpg",name:"YX1",price:599,units:numberOfUnits}])
+  }
   
   useEffect(()=>{
     const handleResize = () => {
@@ -67,7 +73,7 @@ const YX1 = () => {
                     <button className="w-1/3">{numberOfUnits}</button>
                     <button onClick={()=>changeUnits("increase")} className="w-1/3 hover:text-amber-600">+</button>
                   </div>
-                  <button className="bg-amber-600 font-medium text-white hover:bg-yellow-500  text-sm w-36 h-12">ADD TO CART</button>
+                  <button onClick={addToCart} className="bg-amber-600 font-medium text-white hover:bg-yellow-500  text-sm w-36 h-12">ADD TO CART</button>
                 </div>
             </div>
          </div>
