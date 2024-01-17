@@ -48,7 +48,7 @@ const Headphones = () => {
             <Image src={X99} height={700} width={700} alt="X99 II Headphones" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 lg:mt-0 w-3/4">
                 <h3 className="lg:text-lg mb-6 text-sm  text-amber-600 font-light tracking-widest ">NEW PRODUCT</h3>
-                <ProductDesc name="XX99 MARK II HEADPHONES" desc="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound." />
+                <ProductDesc name="XX99 MARK II HEADPHONES" desc="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound." link="/headphones/XX99MarkTwo" />
             </div>
             
         </div>
@@ -56,7 +56,7 @@ const Headphones = () => {
         <div className="flex flex-col lg:flex-row-reverse w-11/12 relative earphones-container items-center mt-24 justify-center xl:gap-36 text-center lg:text-left lg:gap-20">
             <Image src={X99I} height={700} width={700} alt="X99 I Headphones" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 lg:mt-0 w-3/4">
-                <ProductDesc name="XX99 MARK I HEADPHONES" desc="As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go." />
+                <ProductDesc name="XX99 MARK I HEADPHONES" desc="As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go." link="/headphones/XX99MarkOne"/>
             </div>
             
         </div>
@@ -64,7 +64,7 @@ const Headphones = () => {
         <div className="flex flex-col lg:flex-row w-11/12 relative earphones-container items-center mt-24 justify-center xl:gap-36 text-center lg:text-left lg:gap-20">
             <Image src={X59} height={700} width={700} alt="X59 Headphones" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 lg:mt-0 w-3/4">
-                <ProductDesc name="XX59 HEADPHONES" desc="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move." />
+                <ProductDesc name="XX59 HEADPHONES" desc="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move." link="/headphones/XX59"/>
             </div>
             
         </div>

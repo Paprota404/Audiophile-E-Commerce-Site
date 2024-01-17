@@ -43,7 +43,7 @@ EARPHONES" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 lg:mt-0 w-3/4">
                 <h3 className="lg:text-lg mb-6 text-sm  text-amber-600 font-light tracking-widest ">NEW PRODUCT</h3>
                 <ProductDesc name="YX1 WIRELESS
-EARPHONES" desc="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature." />
+EARPHONES" desc="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature." link="earphones/YX1" />
             </div>
         </div>
 

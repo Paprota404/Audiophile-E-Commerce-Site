@@ -5,23 +5,60 @@ import React, {useState, useEffect} from 'react';
 import {CartInfo} from './CartInfo';
 import Button from './Button';
 
+export function useLocalStorage(key, initialValue) {
+    const [storedValue, setStoredValue] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    }
+    return initialValue;
+    });
+   
+    const setValue = value => {
+    setStoredValue(value);
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    }
+    };
+   
+    return [storedValue, setValue];
+   }
+
 
 const Navbar = () => {
     const [isMenuOpen,setIsMenuOpen] = useState(false);
     const [cart,isCartShown] = useState(false);
-    const {cartItems,setCartItems} = React.useContext(CartInfo);
     const [showOverlay,setShowOverlay] = useState(false);
+    const {cartItems: initialCartItems, setCartItems} = React.useContext(CartInfo);
 
+    const [cartItemsState, setCartItemsState] = useLocalStorage("cartItems", initialCartItems);
+
+    //sets total sum
+    let totally = initialCartItems.reduce((total, item) => total + item.price * item.units, 0);
+
+    //setContext na local storage
+
+    //adds to cart
+    const updateItemUnits = (index,newUnits) => {
+        const newItems = [...initialCartItems];
+        newItems[index].units = newUnits;
+        setCartItemsState(newItems);
+        setCartItems(newItems);
+    }
+
+    //show cart xD
     function showCart(){
         isCartShown(!cart);
         setShowOverlay(!showOverlay);
-    
+        
     }
 
+    //usuwa itemy
     function removeItems(){
         setCartItems([]);
     }
 
+    //chowa navbar
     useEffect(()=>{
         const handleResize = () => {
           if(window.innerWidth>880){
@@ -89,32 +126,46 @@ const Navbar = () => {
     <Image onClick={showCart} className="mt-7 mx-8 lg:mr-0 max-h-6 cursor-pointer" src="/icon-cart.svg" width={25} height={10} alt="Cart" />
 
     {cart && (
-        <div className="w-72 h-96 bg-white absolute top-28 rounded-lg right-0">
+        <div className="w-96  bg-stone-500 absolute top-28 rounded-lg right-0">
             <div className="m-5 flex flex-col">
             <div className="flex justify-between ">
-                <div className="text-xl font-semibold tracking-wide">CART ({cartItems.length})
+                <div className="text-xl font-semibold tracking-wide">CART ({cartItemsState.length})
                 </div>
                 <div className="underline cursor-pointer" onClick={removeItems}>Remove all</div>
             </div>
-            {cartItems.map((item,index)=>(
-                <div className="flex mt-5" key={index}>
-                    <div className="rounded-lg"><Image src={item.image} width={70} height={50} alt="Product"></Image>
+                {cartItemsState.map((item,index)=>(
+                    <div className="flex mt-5 justify-between items-center" key={index}>
+
+                        <div className="flex items-center">
+                            <Image src={item.image} width={70} height={50} alt="Product"></Image>
+                            <div className="flex flex-col ml-3 text-lg">
+                                <div className="text-semibold text-lg ">{item.name}</div>
+                                <div>${item.price}</div>
+                            </div>
+                        </div>
+
+                    
+
+                    <Button key={index} number={item.units} onChangeUnits={(newUnits)=> updateItemUnits(index,newUnits)} />
+
+                    
+
+                    </div>
+                ))}
+
+                    <div className="mt-3 flex justify-between">
+                        <div className="text-lg">TOTAL</div>
+                        <div className="text-lg">${totally}</div>
                     </div>
 
-                    <div className="flex flex-col items-center ml-3 justify-center">
-                        <div className="text-semibold text-lg ">{item.name}</div>
-                        <div>${item.price}</div>
-                    </div>
+                    <button className="bg-amber-600 text-white mt-3 h-12">Checkout</button>
 
-                   
-
-                    <div></div>
-
-                </div>
-            ))}
             </div>
         </div>
+        
     )}
+
+    
 
 
      

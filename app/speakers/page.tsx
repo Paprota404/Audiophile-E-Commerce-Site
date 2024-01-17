@@ -47,14 +47,14 @@ const Speakers = () => {
             <Image src={ZX9} height={700} width={700} alt="ZX7 Speaker" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 lg:mt-0 w-3/4">
                 <h3 className="lg:text-lg mb-6 text-sm  text-amber-600 font-light tracking-widest ">NEW PRODUCT</h3>
-                <ProductDesc name="ZX9 SPEAKER" desc="Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups." />
+                <ProductDesc name="ZX9 SPEAKER" desc="Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups." link="/speakers/ZX9"/>
             </div>
         </div>
 
         <div className="flex flex-col lg:flex-row-reverse w-11/12 relative earphones-container items-center mt-24 justify-center xl:gap-36 text-center lg:text-left lg:gap-20">
             <Image src={ZX7} height={700} width={700} alt="X99 I Headphones" className="lg:w-1/2"></Image>
             <div className="lg:w-1/2 mt-10 lg:mt-0 w-3/4">
-                <ProductDesc name="ZX7 SPEAKER" desc="Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use." />
+                <ProductDesc name="ZX7 SPEAKER" desc="Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use." link="/speakers/ZX7"/>
             </div>
             
         </div>

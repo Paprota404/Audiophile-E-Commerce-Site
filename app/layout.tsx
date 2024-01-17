@@ -24,7 +24,6 @@ export default function RootLayout({
       <body className="flex-col ">
       <CartProvider>
       <Navbar />
-       
          {children}
        </CartProvider>
        <Footer />

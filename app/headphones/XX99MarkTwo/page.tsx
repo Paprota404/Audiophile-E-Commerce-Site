@@ -5,10 +5,17 @@ import Image from 'next/image';
 import ProductDesc from '../../ProductDesc';
 import ShopMenu from '../../ShopMenu';
 import BestGear from '../../BestGear';
+import {CartInfo} from '../../CartInfo';
 
 const XX99II = () => {
   const [X99,setX99] = useState("/shared/desktop/image-xx99-mark-two-headphones.jpg");
   const [numberOfUnits,setNumberOfUnits] = useState(1);
+  const {cartItems,setCartItems} = React.useContext(CartInfo)
+
+  function addToCart(){
+    setCartItems([...cartItems,{image:"/product-xx99-mark-two-headphones/desktop/image-product.jpg",name:"XX99 Mark II",price:2900,units:numberOfUnits}])
+  }
+  
   
   useEffect(()=>{
     const handleResize = () => {
@@ -67,7 +74,7 @@ const XX99II = () => {
                     <button className="w-1/3">{numberOfUnits}</button>
                     <button onClick={()=>changeUnits("increase")} className="w-1/3 hover:text-amber-600">+</button>
                   </div>
-                  <button className="bg-amber-600 font-medium text-white hover:bg-yellow-500  text-sm w-36 h-12">ADD TO CART</button>
+                  <button onClick={addToCart} className="bg-amber-600 font-medium text-white hover:bg-yellow-500  text-sm w-36 h-12">ADD TO CART</button>
                 </div>
             </div>
          </div>
@@ -114,19 +121,19 @@ const XX99II = () => {
               <div className="flex flex-col  items-center">
                 <Image src="/shared/desktop/image-xx99-mark-one-headphones.jpg" height={500} width={1000} alt="Mark I Headphones"></Image>
                 <h1 className="mt-8 text-xl lg:text-2xl font-medium">XX99 MARK I</h1>
-                <button className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
+                <button onClick={()=> window.location.href = "/headphones/XX99MarkOne"} className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
               </div>
 
               <div className="flex flex-col  items-center">
                 <Image src="/shared/desktop/image-xx59-headphones.jpg" height={500} width={1000} alt="Mark I Headphones"></Image>
                 <h1 className="mt-8 text-xl lg:text-2xl font-medium">XX59</h1>
-                <button className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
+                <button onClick={()=> window.location.href = "/headphones/XX59"} className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
               </div>
 
               <div className="flex flex-col  items-center">
                 <Image src="/shared/desktop/image-zx9-speaker.jpg" height={500} width={1000} alt="Mark I Headphones"></Image>
                 <h1 className="mt-8 text-xl lg:text-2xl font-medium">ZX9 SPEAKER</h1>
-                <button className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
+                <button onClick={()=> window.location.href = "/speakers/ZX9"} className="bg-amber-600 font-medium hover:bg-yellow-500 mt-8 text-white text-sm w-36 h-12 mb-8">SEE PRODUCT</button>
               </div>
           </div>
         </div>

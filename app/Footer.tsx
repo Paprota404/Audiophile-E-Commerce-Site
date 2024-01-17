@@ -15,9 +15,9 @@ const Footer = () => {
            
             <ul className="lg:justify-self-end tracking-widest z-30  text-white text-sm font-medium flex sm:flex-row flex-col gap-5 sm:gap-7 ">
                 <li className="hover:text-amber-600  lg:block"><Link href="/">HOME</Link></li>
-                <li className="hover:text-amber-600  lg:block"><Link href="/">HEADPHONES</Link></li>
-                <li className="hover:text-amber-600  lg:block"><Link href="/about">SPEAKERS</Link></li>
-                <li className="hover:text-amber-600 lg:block"><Link href="/contact">EARPHONES</Link></li>
+                <li className="hover:text-amber-600  lg:block"><Link href="/headphones">HEADPHONES</Link></li>
+                <li className="hover:text-amber-600  lg:block"><Link href="/speakers">SPEAKERS</Link></li>
+                <li className="hover:text-amber-600 lg:block"><Link href="/earphones">EARPHONES</Link></li>
             </ul>
 
             <div className="mt-5 sm:mt-0">
