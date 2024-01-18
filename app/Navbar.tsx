@@ -41,9 +41,12 @@ const Navbar = () => {
     //adds to cart
     const updateItemUnits = (index,newUnits) => {
         const newItems = [...initialCartItems];
+        //bierze z contextu
         newItems[index].units = newUnits;
         setCartItemsState(newItems);
-        setCartItems(newItems);
+
+        setCartItems(cartItemsState);
+        
     }
 
     //show cart xD
@@ -56,6 +59,7 @@ const Navbar = () => {
     //usuwa itemy
     function removeItems(){
         setCartItems([]);
+        setCartItemsState([]);
     }
 
     //chowa navbar
@@ -74,7 +78,8 @@ const Navbar = () => {
       }, []);
 
     return(
-    <nav className="flex z-10 absolute w-full lg:w-4/5 earphones-container  justify-between">
+
+    <nav className="flex  absolute w-full lg:w-4/5 z-50 earphones-container  justify-between">
         <div className="mt-6 font-bold text-2xl text-white tracking-widest">
             <button onClick={()=>setIsMenuOpen(!isMenuOpen)} className="mx-8 lg:hidden">&#9776;</button>
             audiophile
@@ -126,14 +131,14 @@ const Navbar = () => {
     <Image onClick={showCart} className="mt-7 mx-8 lg:mr-0 max-h-6 cursor-pointer" src="/icon-cart.svg" width={25} height={10} alt="Cart" />
 
     {cart && (
-        <div className="w-96  bg-stone-500 absolute top-28 rounded-lg right-0">
+        <div className="w-96  bg-gray-300 absolute top-28 rounded-lg right-0">
             <div className="m-5 flex flex-col">
             <div className="flex justify-between ">
-                <div className="text-xl font-semibold tracking-wide">CART ({cartItemsState.length})
+                <div className="text-xl font-semibold tracking-wide">CART ({initialCartItems.length})
                 </div>
                 <div className="underline cursor-pointer" onClick={removeItems}>Remove all</div>
             </div>
-                {cartItemsState.map((item,index)=>(
+                {initialCartItems.map((item,index)=>(
                     <div className="flex mt-5 justify-between items-center" key={index}>
 
                         <div className="flex items-center">
@@ -165,12 +170,15 @@ const Navbar = () => {
         
     )}
 
+   
+
     
 
 
      
     </nav>
-   
+    
+  
 )
 }
 export default Navbar
