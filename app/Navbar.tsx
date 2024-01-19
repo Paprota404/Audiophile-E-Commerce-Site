@@ -5,6 +5,7 @@ import React, {useState, useEffect} from 'react';
 import {CartInfo} from './CartInfo';
 import Button from './Button';
 
+
 export function useLocalStorage(key, initialValue) {
     const [storedValue, setStoredValue] = useState(() => {
     if (typeof window !== 'undefined') {
@@ -28,32 +29,49 @@ export function useLocalStorage(key, initialValue) {
 const Navbar = () => {
     const [isMenuOpen,setIsMenuOpen] = useState(false);
     const [cart,isCartShown] = useState(false);
-    const [showOverlay,setShowOverlay] = useState(false);
+    
     const {cartItems: initialCartItems, setCartItems} = React.useContext(CartInfo);
-
     const [cartItemsState, setCartItemsState] = useLocalStorage("cartItems", initialCartItems);
 
     //sets total sum
     let totally = initialCartItems.reduce((total, item) => total + item.price * item.units, 0);
 
     //setContext na local storage
+    
+    
+    
+    //sync cartItemsState z initalcartitems
+    useEffect(() => {
+        setCartItemsState(initialCartItems);
+       }, [initialCartItems]);
 
+       useEffect(() => {
+        setCartItems(cartItemsState); // Replace 'someValue' with the value you want to set
+      }, []);
+
+    
+    function goToCheckout(){
+        if(initialCartItems.length>0){
+            window.location.href = "/checkout";
+        }
+        else{
+            alert("Cart is empty")
+        }
+    }
+
+    
     //adds to cart
     const updateItemUnits = (index,newUnits) => {
         const newItems = [...initialCartItems];
-        //bierze z contextu
         newItems[index].units = newUnits;
-        setCartItemsState(newItems);
-
-        setCartItems(cartItemsState);
+        setCartItems(newItems)
         
     }
 
     //show cart xD
     function showCart(){
         isCartShown(!cart);
-        setShowOverlay(!showOverlay);
-        
+      
     }
 
     //usuwa itemy
@@ -163,7 +181,7 @@ const Navbar = () => {
                         <div className="text-lg">${totally}</div>
                     </div>
 
-                    <button className="bg-amber-600 text-white mt-3 h-12">Checkout</button>
+                    <button onClick={goToCheckout}  className="bg-amber-600 text-white mt-3 h-12">Checkout</button>
 
             </div>
         </div>
