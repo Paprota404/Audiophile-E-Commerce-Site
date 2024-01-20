@@ -149,7 +149,7 @@ const Navbar = () => {
     <Image onClick={showCart} className="mt-7 mx-8 lg:mr-0 max-h-6 cursor-pointer" src="/icon-cart.svg" width={25} height={10} alt="Cart" />
 
     {cart && (
-        <div className="w-96  bg-gray-300 absolute top-28 rounded-lg right-0">
+        <div className="sm:w-96 w-72 bg-gray-300 absolute cart-container top-28 rounded-lg right-0">
             <div className="m-5 flex flex-col">
             <div className="flex justify-between ">
                 <div className="text-xl font-semibold tracking-wide">CART ({initialCartItems.length})

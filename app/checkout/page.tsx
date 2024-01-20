@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Image from 'next/image';
 import {CartInfo} from '../CartInfo';
 
@@ -24,16 +24,22 @@ export function useLocalStorage(key, initialValue) {
  }
 
 const Checkout = () => {
-  const [paymentMethod,paymentMethodChange] = useState("e-money");
+  const [paymentMethod,paymentMethodChange] = useState();
   let [orderVisible,setOrderVisible] = useState(false);
   const {cartItems: initialCartItems, setCartItems} = React.useContext(CartInfo);
   const [cartItemsState, setCartItemsState] = useLocalStorage("cartItems", initialCartItems);
   
-  function orderPlaced(){
+  
+  function orderPlaced(event){
     window.location.href = "/";
+    event.preventDefault();
     setCartItemsState([]);
     setCartItems([]);
   }
+
+  
+
+
   
 
   let totally = initialCartItems.reduce((total, item) => total + item.price * item.units, 0);
@@ -58,55 +64,59 @@ const Checkout = () => {
               <div className="font-bold text-4xl">CHECKOUT</div>
 
               <div className="text-amber-600 mt-10">BILLING DETAILS</div>
-              <form id="order" className="mt-4 grid sm:grid-cols-2 gap-8">
+              <form onSubmit={()=>addInfo("contact")}  className="mt-4 grid sm:grid-cols-2 gap-8">
 
                 <div className="flex flex-col">
                     <label className="text-sm font-bold mb-2" >Name</label>
-                    <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="name" name="name" placeholder="Paprota"></input>
+                    <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="name" name="name" placeholder="Forms" required></input>
                 </div>
 
                 <div className="flex flex-col">
                   <label className="text-sm font-bold mb-2" >Email Address</label>
-                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="email" id="email" name="email" placeholder="yourmail@gmail.com"></input>
+                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="email" id="email" name="email" placeholder="are not required" required></input>
                 </div>
 
                 <div className="flex flex-col">
                   <label className="text-sm font-bold mb-2" >Phone Number</label>
-                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="tel" id="phoneNumber" name="phoneNumber" placeholder="+48 000 000 000" ></input>
+                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="tel" id="phoneNumber" name="phoneNumber" placeholder="to place order" required></input>
                 </div>
+
+               
 
               </form>
 
               <div className="text-amber-600 mt-16">SHIPPING INFO</div>
 
-              <form id="order" className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <form onSubmit={()=>addInfo("location")} className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
 
 
                 <div className="flex flex-col sm:col-span-2">
                     <label className="text-sm font-bold mb-2 " >Address</label>
-                    <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="address" name="address" placeholder="Some Avenue"></input>
+                    <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="address" name="address" placeholder="beacuse its not" required></input>
                 </div>
 
                 <div className="flex flex-col ">
                   <label className="text-sm font-bold mb-2" >ZIP CODE</label>
-                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="zip" name="zip" placeholder="10001"></input>
+                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="zip" name="zip" placeholder="a full stack app" required></input>
                 </div>
 
                 <div className="flex flex-col">
                   <label className="text-sm font-bold mb-2">City</label>
-                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="tel" id="city" name="city" placeholder="Warsaw" ></input>
+                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="tel" id="city" name="city" placeholder="and its easier" required></input>
                 </div>
 
                 <div className="flex flex-col">
                   <label className="text-sm font-bold mb-2" >Country</label>
-                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="country" name="country" placeholder="Polska" ></input>
+                  <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="country" name="country" placeholder="to check application" required></input>
                 </div>
+
+             
 
               </form>
 
               <div className="text-amber-600 mt-16">PAYMENT DETAILS</div>
 
-              <form id="order" className="mt-4 grid sm:grid-cols-2 gap-8">
+              <form id="order" onSubmit={()=>addInfo("payment")} className="mt-4 grid sm:grid-cols-2 gap-8">
 
 
                 <div>
@@ -117,12 +127,12 @@ const Checkout = () => {
              
                   <div>
                     <div className="border-2 rounded-lg h-12 w-full mb-5 pl-4 flex items-center">
-                      <input onChange={()=>payment("e-money")} className="" type="radio" id="e-money" name="payment"></input>
+                      <input onChange={()=>payment("e-money")} className="" type="radio" id="e-money" name="payment" required></input>
                       <label className="text-sm font-bold mb-2 mt-2 ml-2" >e-Money</label>
                     </div>
                     
                     <div className="border-2 rounded-lg h-12 w-full pl-4 flex items-center">
-                      <input onChange={()=>payment("cash")} type="radio" id="cash" name="payment"></input>
+                      <input onChange={()=>payment("cash")} type="radio" id="cash" name="payment" required></input>
                       <label className="text-sm font-bold mb-2 mt-2 ml-2" >Cash on Delivery</label>
                       </div>
                   </div>
@@ -132,7 +142,7 @@ const Checkout = () => {
 
                       <div className="">
                       <label className="text-sm font-bold mb-2">e-Money Number</label>
-                      <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="e-moneyNumber" name="e-moneyNumber" pattern="\d{9}" placeholder="232425465" ></input>
+                      <input className="border-2 rounded-lg h-12 w-full pl-4" type="text" id="e-moneyNumber" name="e-moneyNumber" pattern="\d{9}" placeholder="232425465" required></input>
                       </div>
 
 
@@ -152,8 +162,10 @@ const Checkout = () => {
                       <div className="text-stone-600">The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your residence. Just make sure your address is correct so that your order will not be cancelled.</div>
 
                     </div>
-                  )}
 
+                    
+                  )}
+  
               </form>
 
             </div>
@@ -205,14 +217,14 @@ const Checkout = () => {
 
         </div>
 
-      {orderVisible && (<div className="absolute order rounded-lg p-10 w-144 z-30 bg-white">
+      {orderVisible && (<div className="absolute order rounded-lg p-10 w-72 sm:w-144 z-30 bg-white">
                     <Image src="/checkout/icon-order-confirmation.svg" height={50} width={50} alt="Order Placed"></Image>
-                    <h1 className="lg:text-3xl font-bold my-6">THANK YOU FOR YOUR ORDER</h1>
+                    <h1 className="lg:text-3xl text-2xl font-bold my-6">THANK YOU FOR YOUR ORDER</h1>
                     <h3 className="text-gray-500 mb-5">You will receive an email confirmation shortly</h3>
                     <div className="flex order-bg">
-                      <div className="flex orderbg w-full rounded-lg mt-5">
+                      <div className="flex sm:flex-row flex-col orderbg w-full rounded-lg mt-5">
 
-                           <div className="flex flex-col w-7/12   gap-3 m-4">
+                           <div className="flex flex-col sm:w-7/12   gap-3 m-4">
 
                       
                             
@@ -244,10 +256,10 @@ const Checkout = () => {
                             
                           </div> 
 
-                          <div className="w-5/12 bg-black flex flex-col justify-center  rounded-r-lg ">
+                          <div className="sm:w-5/12 bg-black flex flex-col justify-center  rounded-r-lg ">
                             
-                              <div className="text-stone-400 ml-3  text-lg">GRAND TOTAL</div>
-                              <div className="text-white ml-3">${totally}</div>
+                              <div className="text-stone-400 ml-3 mt-2 text-lg">GRAND TOTAL</div>
+                              <div className="text-white ml-3 mb-2">${totally}</div>
                            
                           </div>
 

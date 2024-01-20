@@ -11,7 +11,7 @@ import React from 'react';
 export default function Home() {
   const [imageSrc, setImageSrc] = useState('/home/desktop/image-hero.jpg');
   const [speaker, setSpeaker] = useState("/home/desktop/image-speaker-zx7.jpg");
-  const [desktopSpeaker,isDesktopSpeaker] = useState(true);
+  const [desktopSpeaker,isDesktopSpeaker] = useState(false);
   const [gearImg, setGearImg] = useState("/shared/desktop/image-best-gear.jpg");
 
 
@@ -21,6 +21,7 @@ export default function Home() {
         setImageSrc('/home/mobile/image-header.jpg');
         setSpeaker("/home/mobile/image-speaker-zx7.jpg");
         setGearImg("/shared/mobile/image-best-gear.jpg");
+        isDesktopSpeaker(false);
       }
       else if(window.innerWidth<=879){
         setImageSrc('/home/tablet/image-header.jpg');
@@ -72,7 +73,7 @@ export default function Home() {
             <div className="w-11/12  relative speaker rounded-lg flex flex-col lg:flex-row text-center lg:text-left justify-center items-center overflow-hidden">
 
               {desktopSpeaker==false && (
-                <Image src="/home/desktop/image-speaker-zx9.png" className="mt-10 relative" height={150} width={150} alt="ZX9 Speaker"></Image>
+                <Image src="/home/mobile/image-speaker-zx9.png" className="mt-10 relative" height={350} width={150} alt="ZX9 Speaker"></Image>
               )}
               
               {desktopSpeaker && (

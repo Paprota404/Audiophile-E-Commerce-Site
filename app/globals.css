@@ -73,6 +73,14 @@ html{
   transform: translate(-50%);
 }
 
+@media (max-width:640px){
+  .cart-container{
+    left: 50%;
+  transform: translate(-50%);
+  }
+}
+
+
 
 .icons-hover:hover {
   filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
