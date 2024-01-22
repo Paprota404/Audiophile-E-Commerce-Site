@@ -37,7 +37,15 @@ const Checkout = () => {
     setCartItems([]);
   }
 
-  
+  function continueandpay(){
+    
+    if(initialCartItems.length==0){
+      alert("Cart is now empty")
+    }
+    else{
+      setOrderVisible(true);
+    }
+  }
 
 
   
@@ -211,7 +219,7 @@ const Checkout = () => {
                         <div className="text-lg">${totally+50}</div>
                     </div>
 
-              <button onClick={()=>setOrderVisible(true)} className="bg-amber-600 w-full h-12 text-white text-sm">CONTINUE & PAY</button>
+              <button onClick={continueandpay} className="bg-amber-600 w-full h-12 text-white text-sm">CONTINUE & PAY</button>
             </div>
           </div>
 
