@@ -10,6 +10,7 @@ import {CartInfo} from '../../CartInfo';
 const YX1 = () => {
   const [X99,setX99] = useState("/product-yx1-earphones/desktop/image-product.jpg");
   const [numberOfUnits,setNumberOfUnits] = useState(1);
+   /* @ts-ignore */
   const {cartItems,setCartItems} = React.useContext(CartInfo);
 
   function addToCart(){
@@ -41,7 +42,7 @@ const YX1 = () => {
     };
   }, []);
 
-  function changeUnits(state){
+  function changeUnits(state: string){
     if(numberOfUnits===0){
       if(state=="decrease"){
         return

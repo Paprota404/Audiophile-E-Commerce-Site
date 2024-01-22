@@ -11,6 +11,7 @@ import {CartInfo} from '../../CartInfo';
 const XX59 = () => {
   const [X99,setX99] = useState("/shared/desktop/image-xx59-headphones.jpg");
   const [numberOfUnits,setNumberOfUnits] = useState(1);
+   /* @ts-ignore */
   const {cartItems,setCartItems} = React.useContext(CartInfo)
 
   function addToCart(){
@@ -41,7 +42,7 @@ const XX59 = () => {
     };
   }, []);
 
-  function changeUnits(state){
+  function changeUnits(state: string){
     if(numberOfUnits===0){
       if(state=="decrease"){
         return

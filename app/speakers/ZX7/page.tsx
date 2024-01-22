@@ -10,7 +10,10 @@ import {CartInfo} from '../../CartInfo';
 const ZX9 = () => {
   const [X99,setX99] = useState("/shared/desktop/image-zx7-speaker.jpg");
   const [numberOfUnits,setNumberOfUnits] = useState(1);
-  const {cartItems,setCartItems} = React.useContext(CartInfo)
+   /* @ts-ignore */
+  const {cartItems, setCartItems} = React.useContext(CartInfo);
+  // Other code...
+ 
 
   function addToCart(){
     setCartItems([...cartItems,{image:"/product-zx7-speaker/desktop/image-product.jpg",name:"ZX7",price:3500,units:numberOfUnits}])
@@ -40,7 +43,7 @@ const ZX9 = () => {
     };
   }, []);
 
-  function changeUnits(state){
+  function changeUnits(state:string){
     if(numberOfUnits===0){
       if(state=="decrease"){
         return

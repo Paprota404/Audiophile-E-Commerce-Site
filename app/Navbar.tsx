@@ -6,7 +6,7 @@ import {CartInfo} from './CartInfo';
 import Button from './Button';
 
 
-export function useLocalStorage(key, initialValue) {
+export function useLocalStorage(key: any, initialValue: any) {
     const [storedValue, setStoredValue] = useState(() => {
     if (typeof window !== 'undefined') {
       const item = window.localStorage.getItem(key);
@@ -15,7 +15,7 @@ export function useLocalStorage(key, initialValue) {
     return initialValue;
     });
    
-    const setValue = value => {
+    const setValue = (value: any) => {
     setStoredValue(value);
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(key, JSON.stringify(value));
@@ -29,12 +29,21 @@ export function useLocalStorage(key, initialValue) {
 const Navbar = () => {
     const [isMenuOpen,setIsMenuOpen] = useState(false);
     const [cart,isCartShown] = useState(false);
-    
-    const {cartItems: initialCartItems, setCartItems} = React.useContext(CartInfo);
+
+ 
+        /* @ts-ignore */
+       const {cartItems: initialCartItems, setCartItems} = React.useContext(CartInfo);
+
     const [cartItemsState, setCartItemsState] = useLocalStorage("cartItems", initialCartItems);
 
+    interface Item{
+        price:number;
+        units:number;
+        name:string;
+        image:string;
+    }
     //sets total sum
-    let totally = initialCartItems.reduce((total, item) => total + item.price * item.units, 0);
+    let totally = initialCartItems.reduce((total:number, item:Item) => total + item.price * item.units, 0);
 
     //setContext na local storage
     
@@ -46,7 +55,7 @@ const Navbar = () => {
        }, [initialCartItems]);
 
        useEffect(() => {
-        setCartItems(cartItemsState); // Replace 'someValue' with the value you want to set
+        setCartItems(cartItemsState); 
       }, []);
 
     
@@ -61,7 +70,7 @@ const Navbar = () => {
 
     
     //adds to cart
-    const updateItemUnits = (index,newUnits) => {
+    const updateItemUnits = (index:number,newUnits:number) => {
         const newItems = [...initialCartItems];
         newItems[index].units = newUnits;
         setCartItems(newItems)
@@ -156,7 +165,7 @@ const Navbar = () => {
                 </div>
                 <div className="underline cursor-pointer" onClick={removeItems}>Remove all</div>
             </div>
-                {initialCartItems.map((item,index)=>(
+                {initialCartItems.map((item: Item,index:number)=>(
                     <div className="flex mt-5 justify-between items-center" key={index}>
 
                         <div className="flex items-center">
@@ -169,7 +178,7 @@ const Navbar = () => {
 
                     
 
-                    <Button key={index} number={item.units} onChangeUnits={(newUnits)=> updateItemUnits(index,newUnits)} />
+                    <Button key={index} number={item.units} onChangeUnits={(newUnits:number)=> updateItemUnits(index,newUnits)} />
 
                     
 

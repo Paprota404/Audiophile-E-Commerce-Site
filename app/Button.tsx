@@ -1,10 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
 
-const Button = ({number,onChangeUnits}) => {
+const Button = ({number,onChangeUnits}:{number:number,onChangeUnits: any}) => {
     const [numberOfUnits,setNumberOfUnits] = useState(number);
 
-    function changeUnits(state){
+    function changeUnits(state: string){
         if(numberOfUnits===0){
           if(state=="decrease"){
             return

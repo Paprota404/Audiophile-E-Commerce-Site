@@ -21,7 +21,7 @@ const Footer = () => {
             </ul>
 
             <div className="mt-5 sm:mt-0">
-                <p className="text-gray-500 text-sm">Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
+                <p className="text-gray-500 text-sm">Audiophile is an all in one stop to fulfill your audio needs. We&apos;re a small team of music lovers and sound specialists who are devoted to helping you get the most out of personal audio. Come and visit our demo facility - we’re open 7 days a week.</p>
             </div>
                 <div className="flex gap-4 sm:justify-self-end my-4 sm:my-0 sm:self-end sm:relative md:top-5 lg:top-6 xl:top-7 lg:bottom-8">
                     <img src="/shared/desktop/icon-facebook.svg" className="w-6 h-6 hover-orange-500 cursor-pointer icons-hover" alt="Facebook"></img>

@@ -1,10 +1,10 @@
 'use client'
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Image from 'next/image';
 import {CartInfo} from '../CartInfo';
 
-export function useLocalStorage(key, initialValue) {
+export function useLocalStorage(key: any, initialValue: any) {
   const [storedValue, setStoredValue] = useState(() => {
   if (typeof window !== 'undefined') {
     const item = window.localStorage.getItem(key);
@@ -13,7 +13,7 @@ export function useLocalStorage(key, initialValue) {
   return initialValue;
   });
  
-  const setValue = value => {
+  const setValue = (value: any) => {
   setStoredValue(value);
   if (typeof window !== 'undefined') {
     window.localStorage.setItem(key, JSON.stringify(value));
@@ -24,13 +24,14 @@ export function useLocalStorage(key, initialValue) {
  }
 
 const Checkout = () => {
-  const [paymentMethod,paymentMethodChange] = useState();
+  const [paymentMethod,paymentMethodChange] = useState<string>("");
   let [orderVisible,setOrderVisible] = useState(false);
+   /* @ts-ignore */
   const {cartItems: initialCartItems, setCartItems} = React.useContext(CartInfo);
   const [cartItemsState, setCartItemsState] = useLocalStorage("cartItems", initialCartItems);
   
   
-  function orderPlaced(event){
+  function orderPlaced(event: any){
     window.location.href = "/";
     event.preventDefault();
     setCartItemsState([]);
@@ -47,10 +48,16 @@ const Checkout = () => {
     }
   }
 
+  interface Item{
+    price:number;
+    units:number;
+    name:string;
+    image:string;
+}
 
   
 
-  let totally = initialCartItems.reduce((total, item) => total + item.price * item.units, 0);
+  let totally = initialCartItems.reduce((total: number, item: Item) => total + item.price * item.units, 0);
 
   function payment(method: string) {
     if(method=="e-money"){
@@ -72,7 +79,7 @@ const Checkout = () => {
               <div className="font-bold text-4xl">CHECKOUT</div>
 
               <div className="text-amber-600 mt-10">BILLING DETAILS</div>
-              <form onSubmit={()=>addInfo("contact")}  className="mt-4 grid sm:grid-cols-2 gap-8">
+              <form   className="mt-4 grid sm:grid-cols-2 gap-8">
 
                 <div className="flex flex-col">
                     <label className="text-sm font-bold mb-2" >Name</label>
@@ -95,7 +102,7 @@ const Checkout = () => {
 
               <div className="text-amber-600 mt-16">SHIPPING INFO</div>
 
-              <form onSubmit={()=>addInfo("location")} className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <form  className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-8">
 
 
                 <div className="flex flex-col sm:col-span-2">
@@ -124,7 +131,7 @@ const Checkout = () => {
 
               <div className="text-amber-600 mt-16">PAYMENT DETAILS</div>
 
-              <form id="order" onSubmit={()=>addInfo("payment")} className="mt-4 grid sm:grid-cols-2 gap-8">
+              <form id="order"  className="mt-4 grid sm:grid-cols-2 gap-8">
 
 
                 <div>
@@ -183,7 +190,7 @@ const Checkout = () => {
           <div className="checkout-bg rounded-lg lg:w-3/12 h-full flex justify-center">
             <div className="flex flex-col m-6 gap-6 w-4/5">
               <div className="font-bold text-xl tracking-widest ">SUMMARY</div>
-              {initialCartItems.map((item, index) => {
+              {initialCartItems.map((item: Item, index: number) => {
                   return (
                     <div className="flex mt-5 justify-between items-center" key={index}>
                       <div className="flex items-center">

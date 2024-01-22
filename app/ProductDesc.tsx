@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProductDesc = ({name,desc,price}: {name:string, desc:string, price:number}) => {
+const ProductDesc = ({name,desc,price}: {name:string, desc:string, price:string}) => {
   return (
     <div>
         <div className=" lg:text-left">
