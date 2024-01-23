@@ -6,7 +6,7 @@ import {CartInfo} from './CartInfo';
 import Button from './Button';
 
 
-export function useLocalStorage(key: any, initialValue: any) {
+function useLocalStorage(key: any, initialValue: any) {
     const [storedValue, setStoredValue] = useState(() => {
     if (typeof window !== 'undefined') {
       const item = window.localStorage.getItem(key);

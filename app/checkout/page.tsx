@@ -4,7 +4,7 @@ import {useState} from 'react';
 import Image from 'next/image';
 import {CartInfo} from '../CartInfo';
 
-export function useLocalStorage(key: any, initialValue: any) {
+function useLocalStorage(key: any, initialValue: any) {
   const [storedValue, setStoredValue] = useState(() => {
   if (typeof window !== 'undefined') {
     const item = window.localStorage.getItem(key);
