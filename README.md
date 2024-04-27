@@ -3,7 +3,7 @@
 For now its only frontend and I'm working on adding .NET backend.
 
 ## Quick Start
-1. Go to [Audiophile Website](audiophile-e-commerce-site.vercel.app)
+1. Go to [Audiophile Website](https://audiophile-e-commerce-site.vercel.app/)
 2. Explore
    
 ## Features
