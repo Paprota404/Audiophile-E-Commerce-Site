@@ -8,7 +8,8 @@ For now its only frontend and I'm working on adding .NET backend.
    
 ## Features
 - Appealing UI
-- Cart
+- Interactive cart
+- Checkout page
   
 ## Features I'm planning to add
 - Managing profile
