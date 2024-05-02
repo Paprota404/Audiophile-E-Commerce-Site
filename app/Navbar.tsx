@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { CartInfo } from "./CartInfo";
 import Button from "./Button";
+import Overlay from './Overlay';
 
 function useLocalStorage(key: any, initialValue: any) {
   const [storedValue, setStoredValue] = useState(() => {
@@ -102,8 +103,10 @@ const Navbar = () => {
   }, []);
 
   return (
+    <>
+    <Overlay isOpen={cart} />
     <nav className="flex  absolute w-full lg:w-4/5 z-50 earphones-container  justify-between">
-      <div className="mt-6 font-bold text-2xl text-white tracking-widest">
+      <div className="mt-6 font-bold text-2xl z-50 text-white tracking-widest">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="mx-8 lg:hidden"
@@ -197,7 +200,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <ul className="tracking-widest z-20  text-white text-sm font-medium flex mt-8 gap-7 ">
+      <ul className="tracking-widest z-20 z-50  text-white text-sm font-medium flex mt-8 gap-7 ">
         <li className="hover:text-amber-600 hidden lg:block">
           <Link href="/">HOME</Link>
         </li>
@@ -214,15 +217,17 @@ const Navbar = () => {
       <hr className="z-10 absolute w-full top-20"></hr>
       <Image
         onClick={showCart}
-        className="mt-7 mx-8 lg:mr-0 max-h-6 cursor-pointer"
+        className="mt-7 mx-8 lg:mr-0 max-h-6 cursor-pointer z-50"
         src="/icon-cart.svg"
         width={25}
         height={10}
         alt="Cart"
       />
 
+      
+
       {cart && (
-        <div className="sm:w-96 w-72 bg-gray-300 absolute cart-container top-28 rounded-lg right-0">
+        <div className="sm:w-96 w-72 bg-white absolute z-50 cart-container top-28 rounded-lg right-0">
           <div className="m-5 flex flex-col">
             <div className="flex justify-between ">
               <div className="text-xl font-semibold tracking-wide">
@@ -275,6 +280,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </>
   );
 };
 export default Navbar;
