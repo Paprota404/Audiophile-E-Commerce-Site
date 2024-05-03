@@ -200,7 +200,7 @@ const Navbar = () => {
         </div>
       )}
 
-      <ul className="tracking-widest z-20 z-50  text-white text-sm font-medium flex mt-8 gap-7 ">
+      <ul className="tracking-widest  z-50  text-white text-sm font-medium flex mt-8 gap-7 ">
         <li className="hover:text-amber-600 hidden lg:block">
           <Link href="/">HOME</Link>
         </li>
