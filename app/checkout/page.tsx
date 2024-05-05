@@ -70,8 +70,8 @@ const Checkout = () => {
   }
 
   return (
-    <div className="">
-      <div className="bg-black h-20"></div>
+    <div className="mb-32">
+      <div className="bg-black h-20 "></div>
 
       <div className="flex flex-col lg:flex-row gap-10 w-11/12 sm:w-9/12 mt-36 relative earphones-container forms   ">
         <div className="checkout-bg  lg:w-8/12 rounded-lg">

@@ -10,7 +10,7 @@ import CartProvider from './CartProvider';
 export const metadata: Metadata = {
   title: 'Audiophile e-commerce',
   description: 'Buy some high qualiy sounding stuff',
-  icons: "/favicon.png"
+  icons: "/headphones.png"
 }
 
 export default function RootLayout({
